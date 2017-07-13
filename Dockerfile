@@ -44,7 +44,7 @@ RUN cd /tmp && \
   mv sqljdbc42.jar "${STREAMSETS_LIBRARIES_EXTRA_DIR}/streamsets-datacollector-jdbc-lib/lib"
 
 RUN -rm -it --cap-add SYS_ADMIN \
-    --cap-add DAC_READ_SEARCH \
+    --cap-add DAC_READ_SEARCH
 	
 USER ${SDC_USER}
 EXPOSE 18630
