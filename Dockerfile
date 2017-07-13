@@ -12,6 +12,7 @@ RUN apk --no-cache add bash \
     libstdc++ \
     libuuid \
     cifs-utils \
+    sudo \
     sed
 
 # Fix the stagelibs command to run on Alpine Linux 
