@@ -10,8 +10,8 @@ RUN apk --no-cache add bash \
     curl \
     krb5-libs \
     libstdc++ \
-	libuuid \
-	cifs-utils \
+    libuuid \
+    cifs-utils \
     sed
 
 # Fix the stagelibs command to run on Alpine Linux 
@@ -43,6 +43,9 @@ RUN cd /tmp && \
   curl -O -L "https://raw.github.com/mtnbiker99/streamsets-dockerfile/master/sqljdbc42.jar" && \
   mv sqljdbc42.jar "${STREAMSETS_LIBRARIES_EXTRA_DIR}/streamsets-datacollector-jdbc-lib/lib"
 
+RUN -rm -it --cap-add SYS_ADMIN \
+    --cap-add DAC_READ_SEARCH \
+	
 USER ${SDC_USER}
 EXPOSE 18630
 #COPY docker-entrypoint.sh /
